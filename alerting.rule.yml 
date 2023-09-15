@@ -1,0 +1,31 @@
+#alert when a server is down 
+
+groups:
+- name: server_is_down
+  rules:
+  - alert: server_is_down
+    expr: up == 0 #to check server that is down
+    for: 1m #we should be alerted if it persists up to 1 minute
+    labels:
+      severity: page
+    annotations:
+      summary: server_is_down
+
+
+
+
+
+
+
+
+#for latency
+# groups:
+# - name: example
+#   rules:
+#   - alert: HighRequestLatency
+#     expr: job:request_latency_seconds:mean5m{job="myjob"} > 0.5
+#     for: 10m
+#     labels:
+#       severity: page
+#     annotations:
+#       summary: High request latency
