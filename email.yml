@@ -1,0 +1,32 @@
+global:
+  resolve_timeout: 1m 
+
+route:
+  group_by: ['alertname']
+  group_wait: 10s
+  group_interval: 10s
+  repeat_interval: 1h
+  receiver: 'send_email'
+receivers:
+  - name: 'send_email'
+    email_configs:
+    - to: the2vibe@gmail.com
+      from: the2vibe@gmail.com
+      smarthost: smtp.gmail.com:587
+      auth_username: the2vibe@gmail.com
+      auth_password: 123456jeremiah
+      send_resolved: true
+      require_tls: false
+
+
+inhibit_rules:
+  - source_match:
+      severity: 'critical'
+    target_match:
+      severity: 'warning'
+    equal: ['alertname', 'dev', 'instance']  
+
+    # smtp-relay.gmail.com:25
+
+
+
