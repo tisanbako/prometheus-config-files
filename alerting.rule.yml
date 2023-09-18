@@ -1,4 +1,4 @@
-#alert when a server is down .
+#alert when a server is down 
 
 groups:
 - name: server_is_down
