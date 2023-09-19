@@ -1,23 +1,26 @@
-#1. create a file 
-# sudo vi /etc/systemd/system/prometheus.service
-
-
-#copy and paste this file 
-
+#1. Stop the running Prometheus process that we left running in the previous lecture, and copy the new files to bin folder.
+2.  cp -r . /usr/local/bin/prometheus
+#3.  Create a file called prometheus.service
+4.   sudo nano /etc/systemd/system/prometheus.service
+#5   Add the script and save
 [Unit]
-Description=prometheus Server
-Documentation=https://prometheus.io/docs/introduction/overview/
-After=network-online.target
+Description=Prometheus Service
+After=network.target
 
 [Service]
-User=root
-Restart=on-failure
-
-ExecStart=/home/prometheus-2.47.0.linux-amd64/prometheus --config.file=/home/prometheus-2.47.0.linux-amd64/prometheus.yml
+Type=simple
+ExecStart=/usr/local/bin/prometheus/prometheus --config.file=/usr/local/bin/prometheus/prometheus.yml
 
 [Install]
 WantedBy=multi-user.target
 
+
+#Now start and check the service is running.
+
 #sudo systemctl daemon-reload
-#systemctl start prometheus
-#systemctl status prometheus
+; sudo service prometheus start
+; sudo service prometheus status
+
+We can now leave the new Prometheus service running. If you ever need to stop the new Prometheus service, then type
+
+
