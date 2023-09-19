@@ -22,5 +22,7 @@ WantedBy=multi-user.target
 ; sudo service prometheus status
 
 We can now leave the new Prometheus service running. If you ever need to stop the new Prometheus service, then type
+sudo service prometheus stop
+sudo service prometheus status
 
 
