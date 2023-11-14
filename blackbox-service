@@ -24,5 +24,3 @@ WantedBy=multi-user.target
 # sudo systemctl daemon-reload
 # systemctl start blackbox
 # systemctl status blackbox
-
-+d%+x:@CDG@3q+
