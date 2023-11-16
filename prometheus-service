@@ -1,4 +1,4 @@
-#1. Stop the running Prometheus process that we left running in the previous lecture, and copy the new files to bin folder.
+#1. Stop the running Prometheus process that we left running in the previous lecture, and copy the new files to bin folder
 2.  cp -r . /usr/local/bin/prometheus
 #3.  Create a file called prometheus.service
 4.   sudo nano /etc/systemd/system/prometheus.service
